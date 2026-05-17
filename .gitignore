@@ -10,7 +10,7 @@ next.user-config.*
 # Environment variables
 .env
 .env.local
-
+ai-interview
 # Common ignores
 node_modules
 .next/
