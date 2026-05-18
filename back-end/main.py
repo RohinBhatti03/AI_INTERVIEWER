@@ -412,7 +412,7 @@ async def evaluate(request: EvaluationRequest):
             "  englishScore    : int 0-100  (grammar, vocabulary, sentence structure)\n"
             "  clarityScore    : int 0-100  (logical flow, ease of understanding)\n"
             "  aiFeedback      : string     (3-4 sentence overall feedback paragraph)\n"
-            "  idealAnswer     : string     (perfect answer in clean Markdown)\n"
+            "  idealAnswer     : string     (perfect answer as plain text only, NO markdown, NO backticks, NO code blocks)\n"
             "  suggestions     : array of exactly 4 short strings (specific improvements the candidate should make)\n"
             "  englishFeedback : string     (2-3 sentences on grammar, vocabulary, fluency tips)\n"
         )
