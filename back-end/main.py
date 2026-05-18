@@ -16,7 +16,6 @@ import pypdf
 
 load_dotenv()
 
-
 AI_SERVICE_PORT = int(os.getenv("PORT", os.getenv("AI_SERVICE_PORT", 8000)))
 GROQ_API_KEY       = os.getenv("GROQ_API_KEY")
 GROQ_MODEL_NAME    = os.getenv("GROQ_MODEL_NAME", "llama-3.3-70b-versatile")
