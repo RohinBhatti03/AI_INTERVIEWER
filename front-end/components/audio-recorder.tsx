@@ -29,9 +29,13 @@ export function AudioRecorder({ onTranscription, disabled }: AudioRecorderProps)
   const startRecording = useCallback(async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: "audio/webm",
-      })
+      const mimeType = MediaRecorder.isTypeSupported("audio/webm")
+      ? "audio/webm"
+       : "audio/mp4"
+
+       const mediaRecorder = new MediaRecorder(stream, {
+        mimeType,
+        })
 
       chunksRef.current = []
 
@@ -42,7 +46,7 @@ export function AudioRecorder({ onTranscription, disabled }: AudioRecorderProps)
       }
 
       mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(chunksRef.current, { type: "audio/webm" })
+        const audioBlob = new Blob(chunksRef.current, { type: mimeType })
         stream.getTracks().forEach((track) => track.stop())
 
         setIsTranscribing(true)
