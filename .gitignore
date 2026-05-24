@@ -10,7 +10,8 @@ next.user-config.*
 # Environment variables
 .env
 .env.local
-ai-interview
+ai-interview/
+__pycache__/
 # Common ignores
 node_modules
 .next/
